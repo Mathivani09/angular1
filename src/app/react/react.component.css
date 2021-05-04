@@ -1,0 +1,19 @@
+.container{
+                 margin:150 px,400 px;
+                 width:50%;
+                 height: 90%;
+                 border:2px solid black;
+                 background-color: oldlace;
+            }
+    .btn-primary{
+        float:right;
+        margin: -10px 10px;
+    }
+    .btn-secondary{
+        margin:10px 20px;
+    }
+
+h2{
+   text-align:left;
+    
+}

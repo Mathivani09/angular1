@@ -1,0 +1,46 @@
+
+  
+  
+  {{msg}}
+  <p *ngIf="allow; else dontallow">allowed!!!</p>
+   <ng-template #dontallow>
+     <p>they didnt allow me!</p>
+     <p>pls click the button to allow you</p>
+     <button (click)="open()">click me</button>
+    
+   </ng-template>
+<p *ngFor="let num of friuts" ></p>
+    {{friuts}}
+    
+       <div [ngSwitch]="'switch'">
+        <div *ngSwitchCase="'one'">output</div>
+        <div *ngSwitchDefault>default</div>
+      </div>
+         
+    
+<!--<h2>Hello World: ngIf!</h2>
+  <button (click)="onEditClick()">Make text editable!</button>
+  <p *ngIf="canEdit; else noEdit"></p>
+      <p>You can edit the following paragraph.</p>
+  
+  <ng-template #noEdit>
+      <p>The following paragraph is read only. Try clicking the button!</p>
+  </ng-template>
+  <p [contentEditable]="true">{{ message }}</p>-->
+
+
+
+
+<!--/*<h1 *ngIf="true">hello</h1>
+<h1 *ngIf="test">hi</h1>
+<div *ngFor="let num of array">
+  <h1>{{num}}</h1>
+</div >
+
+
+<div [ngSwitch]="'one'">
+  <div *ngSwitchCase="'one'">display one</div>
+  <div *ngSwitchCase="'two'">display two</div>
+  <div *ngSwitchDefault>display default</div>
+</div>*/-->
+

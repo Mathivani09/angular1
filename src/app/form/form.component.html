@@ -1,0 +1,142 @@
+<html>
+    <head>
+        <style>
+            .container            {
+                 margin:150 px,400 px;
+                 width:50%;
+                 height: 80%;
+                 border:2px solid black;
+                 background-color: oldlace;
+            }
+            .form-control{
+                      border:1px solid black;
+                      
+            }
+            .submit
+            {
+                background-color: cadetblue;
+                margin:10px 200px;
+                border:1px solid black;
+                border-radius: 2px;
+            }
+            .label{
+                color:black;
+                font-weight: bold;
+            }
+            h2
+            {
+                text-align:center;
+
+            }
+            
+        </style>
+    </head>
+    <body>
+        <h2 >Placement Form</h2>
+        <div  class='container '>
+            <form   (ngSubmit)=" onSubmit(form1.value)" #form1="ngForm" >
+                <div class='form-group' >
+                    <label class='label'> NAME </label>
+                    <input type="text" class='form-control'   [class.is-invalid]="name.untouched&&name.invalid"
+                        name='name' #name='ngModel' minlength="6" ngModel required >
+                        {{name.valid}}
+                             <div *ngIf="name.errors && (name.invalid || name.touched)">
+                                 <small class="text-danger" *ngIf="name.errors.required">Name is Required</small>
+                                 <small class="text-danger" *ngIf="name.errors.minlength">Name must be above 5 letters</small>
+                            </div>
+                        <p>valid:{{name.valid}}</p>
+                        <p>touched:{{name.touched}}</p>
+                </div>
+
+                <div class='form-group' >
+                      <label class='label'> EMAIL</label><br/>
+                        <input type="email" class='form-control'  [class.is-invalid]="email.untouched
+                         && email.invalid" name='email' #email='ngModel' ngModel required >
+                          <small class="text-danger" [class.d-none]="email.touched||email.valid"> 
+                              Email is required </small>
+                </div>
+
+                <div class='form-group' >
+                     <label class='label'> AGE</label>
+                        <input type="number" class='form-control'name='age' [class.is-invalid]="age.invalid&& age.untouched"  #age='ngModel' ngModel required>
+                        <small class="text-danger"[class.d-none]="age.valid||age.touched">Age is Required</small>
+                </div>
+                
+                <label class='label'> GENDER</label><br/>
+
+                <div class='form-check' >
+                     <input   class='form-check-input'style="margin-right: 3px" type="radio" name='Gender' 
+                     #gender value='Male' ngModel >
+                      <label class='form-check-label' >Male</label><br/>
+                </div>
+                <div class='form-check' >
+                     <input  class='form-check-input'style="margin-right: 3px" type="radio" name='Gender'
+                      #gender value='female' ngModel>
+                         <label class='form-check-label'>Female</label><br/>
+                </div>
+                <label class='label' > COURSE </label><br/>
+                <div class='form-check-mb-3' >
+                    <input class='form-check-input' style="margin-right: 3px" type="checkbox" name='course'  ngModel>
+                    <label class='form-check-label'> C</label><br/>
+                </div>
+                <div class='form-check-mb-3' >
+                    <input class='form-check-input' style="margin-right: 3px"type="checkbox" name='course1'   ngModel >
+                    <label class='form-check-label'> C++</label><br/>
+                </div>
+                <div class='form-check-mb-3' >
+                    <input class='form-check-input'style="margin-right: 3px" type="checkbox" name='course2'    ngModel>
+                    <label class='form-check-label'> Java</label><br/>
+                </div>
+                <div class='form-check-mb-3' >
+                    <input  class='form-check-input'style="margin-right: 3px"type="checkbox" name='course3'     ngModel>
+                    <label class='form-check-label'> Python</label><br/>
+                </div>
+                <div ngModelGroup='UG'>
+                    <div class='form-group' >
+                        <label class='label'>DEPARTMENT</label><br/>
+                        <select  (blur)="validatedept(dept1.value)" (change)="validatedept(dept1.value)"name="Department" 
+                              #dept1="ngModel" [class.is-invalid]="dept1.touched && dpt" class ="custom-select" ngModel >
+                              <option value="default">choose Department</option>
+                              <option *ngFor="let d of dept">{{d}}</option>
+                       </select>
+                       <small class="text-danger" [class.d-none]="dept1.untouched||!dpt">please choose dept</small><br/>
+                    </div>
+
+                    <div class='form-group' >
+                        <label class="label">SECTION</label><br/>
+                     <input  style="margin-right: 3px" type="radio" name="section"  #section value="A"ngModel>
+                       <label>A</label><br/>
+                       <input style="margin-right: 3px" type="radio" name="section"  #section value="B"  ngModel>
+                       <label>B</label><br/>
+                     <input style="margin-right: 3px" type="radio" name="section"  #section value="C"  ngModel>
+                       <label>C</label><br/>
+                 </div> <br/>
+                   <div class='form-group' >
+                       <label class="label" >YEAR</label>
+                       <input style="margin-right: 3px"  class ='form-control' type="text" #year='ngModel' name="year" 
+                        required [class.is-invalid]="year.untouched && year.invalid"ngModel>
+                         <small class="text-danger" [class.d-none]="year.touched||year.valid"> 
+                          Year is required </small>
+                    </div>
+                </div>
+
+                  <label class='label'>PHONE NO </label>
+                <input type="tel" class='form-control'name='phno' pattern="^\d{10}$"
+                required [class.is-invalid]="phno.untouched && phno.invalid"ngModel #phno='ngModel' ngModel >
+
+                   <div *ngIf="phno.errors && (phno.invalid||phno.touched)">
+                       <small class="text-danger" *ngIf="phno.errors.required" >phno is required</small>
+                       <small class="text-danger" *ngIf="phno.errors.pattern">phoneno must 10 digits</small>
+
+                   </div>
+               <br/>
+                
+                <label class='label'>ADDRESS</label><br/>
+                <input type="text" class='form-control'name='address' #address ngModel><br/>
+                <input type="submit" [disabled]= "form1.form.invalid || dpt" class="btn btn-primary">
+                
+
+            </form>
+        </div>
+    </body>
+</html>

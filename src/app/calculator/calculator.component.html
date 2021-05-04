@@ -1,0 +1,74 @@
+
+<html>
+    <head>
+    
+    <style>
+        .container{
+            width: 30%;
+            height:80%;
+            border:2px solid black;
+            margin:-40px 380px;
+        }
+        .button
+        {
+            
+            border:2px solid black;
+            color: black;
+            margin:10px;
+        }
+        input[type=number]
+        {
+            width:80%;
+            border:1px solid black;
+            border-radius: 5px;
+        }
+        label{
+            color:black;
+        }
+        h2{
+            text-align: center;
+            padding:40px;
+        }
+        
+    </style>
+    </head>
+    <body>
+        <h2>CALCULATOR</h2>
+        
+        <div class="container">
+            <label>Enter num1:</label><br/>
+            <input type="number"  #num [(ngModel)]="model"/><br/>
+            <label>Enter num2:</label><br/>
+            <input type="number" #num2  [(ngModel)]="model1"/><br/><br/>
+            
+            <button style="margin-right:15px"class="button" (click)="sum(num.value,num2.value)">ADD</button>
+            <button style="margin-right:15px "class="button"  (click)="sub(num.value,num2.value)">SUB</button>
+            <button style="margin-right:15px"class="button" (click)="mul(num.value,num2.value)">MUL</button>
+            <button style="margin-right:15px" class="button" (click)="div(num.value,num2.value)">DIV</button><br/>
+
+            <label color:black>RESULT:</label>
+             <p>{{model}} {{symbol}} {{model1}} {{equal}}  {{result}}</p>
+
+        </div>
+    
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div>
+            <p *ngIf="button1  ">{{model}} {{symbol}} {{model1}} {{equal}}  {{result}}</p>
+            <p *ngIf="button2 ">{{model}} {{symbol}} {{model1}}  {{equal}}  {{subtract}}</p>
+            <p *ngIf="button3 ">{{model}}  {{symbol}} {{model1}}  {{equal}}  {{multiply}}</p>
+            <p *ngIf="button4 ">{{model}}  {{symbol}} {{model1}}  {{equal}}  {{division}}</p>
+             <br/>
+             </div>-->
